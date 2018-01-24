@@ -39,11 +39,10 @@ class TicTacToe
     end
   end
 
-  #=begin
+
   #Convert user input to an index
   #If the move is valid, make the move and display board.
   #Otherwise ask for a new position until a valid move is received.
-  #=end
   def turn
     puts "Please enter 1-9:"
     input = gets.strip
@@ -60,7 +59,7 @@ class TicTacToe
     end
   end
 
-  #This method returns the number of turns that have been played
+  #turn_count method returns the number of turns that have been played
   def turn_count
     count  = 0
     @board.each do |player|
@@ -81,9 +80,8 @@ class TicTacToe
     end
   end
 
-  #=begin this method should accept a board as an argument and return false/nil if there is no win combination
-         #present in the board and return the winning combination indexes as an array if there is a win
-  #=end
+  # won method should accept a board as an argument and return false/nil if there is no win combination
+  #present in the board and return the winning combination indexes as an array if there is a win
   def won?
     if @board.all?{|position|position == " "}
       return false
@@ -157,11 +155,10 @@ class TicTacToe
     end
   end
 
-  #=begin
+
   #The play method is the main method of the tic tac toe application and is responsible for the game loop. A tic tac toe game must allow players to take turns,
   #checking if the game is over after every turn, and at the conclusion of the game, whether because it was won or because it was a draw,
   #reporting to the user the outcome of the game
-  #=end
   def play
     @board.each do|turn|
       is_game_over = over?
