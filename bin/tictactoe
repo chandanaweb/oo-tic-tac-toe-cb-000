@@ -6,3 +6,4 @@ board= [" "," "," "," "," "," "," "," "," "]
 puts "Where would you like to go?"
 play(board)
 game = TicTacToe.new
+game.play
