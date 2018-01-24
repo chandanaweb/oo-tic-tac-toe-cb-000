@@ -54,9 +54,8 @@ class TicTacToe
       display_board
     else
       puts 'Please enter correct input'
-      turn
-      #puts "Please enter 1-9:"
-      #input = gets.strip
+      puts "Please enter 1-9:"
+      input = gets.strip
     end
   end
 
