@@ -161,7 +161,8 @@ class TicTacToe
   #checking if the game is over after every turn, and at the conclusion of the game, whether because it was won or because it was a draw,
   #reporting to the user the outcome of the game
   def play
-    @board.each do|turn|
+    @board.each do|index|
+      turn
       is_game_over = over?
       is_game_won = won?
       is_game_draw = draw?
