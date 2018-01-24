@@ -51,7 +51,7 @@ class TicTacToe
     is_valid = valid_move?(index)
     if is_valid === true
       current_turn = current_player
-      moveindex,current_turn)
+      move(index,current_turn)
       display_board
     else
       puts 'Please enter correct input'
