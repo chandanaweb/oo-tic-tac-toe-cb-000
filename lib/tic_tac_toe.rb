@@ -3,20 +3,21 @@ class TicTacToe
   def initialize
       @board =[" "," "," "," "," "," "," "," "," "]
   end
-  # Helper Method
-  def position_taken?(board, index)
-    !(board[index].nil? || board[index] == " ")
-  end
 
   #  WIN_COMBINATIONS constant
   WIN_COMBINATIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[6,4,2]]
+  
+  # Helper Method
+  def position_taken?(index)
+    !(@board[index].nil? || @board[index] == " ")
+  end
 
-  def display_board(board)
-    puts " #{board[0]} | #{board[1]} | #{board[2]} "
+  def display_board
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
     puts"-----------"
-    puts " #{board[3]} | #{board[4]} | #{board[5]} "
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
     puts"-----------"
-    puts " #{board[6]} | #{board[7]} | #{board[8]} "
+    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
 
   # input_to_index , This method takes the user_input (which is a string), converts it to an Integer, and subtracts 1
@@ -24,21 +25,22 @@ class TicTacToe
     return num.to_i - 1
   end
 
-  #move accepts board,index and player's character. places the  player's character at provided index
-  def move(board,index,token)
-   return board[index] = token
+  #move accepts index and player's character. places the  player's character at provided index
+  def move(index,token)
+   return @board[index] = token
   end
 
-  #valid_move method accepts a board and an index to check and returns true if the move is valid
-  def valid_move?(board,index)
-    if index < 9 && index > -1 && board[index] != 'X' && board[index] != 'O'
+  #valid_move method accepts an index to check and returns true if the move is valid
+  def valid_move?(index)
+    if index < 9 && index > -1 && @board[index] != 'X' && @board[index] != 'O'
       return true
     else
       return false
     end
   end
 
-  =begin turn method accepts board as argument
+  #=begin 
+  turn method accepts board as argument
   Convert user input to an index
   If the move is valid, make the move and display board.
   Otherwise ask for a new position until a valid move is received.
@@ -156,12 +158,12 @@ class TicTacToe
     end
   end
 
-  =begin
-  The play method is the main method of the tic tac toe application and is responsible for the game loop. A tic tac toe game must allow players to take turns,
-  checking if the game is over after every turn, and at the conclusion of the game, whether because it was won or because it was a draw,
-  reporting to the user the outcome of the game
-  =end
-  def play(board)
+  #=begin
+  #The play method is the main method of the tic tac toe application and is responsible for the game loop. A tic tac toe game must allow players to take turns,
+  #checking if the game is over after every turn, and at the conclusion of the game, whether because it was won or because it was a draw,
+  #reporting to the user the outcome of the game
+  #=end
+  def play
     board.each do|turn|
       is_game_over = over?(board)
       is_game_won = won?(board)
