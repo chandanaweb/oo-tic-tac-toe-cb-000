@@ -6,7 +6,7 @@ class TicTacToe
 
   #  WIN_COMBINATIONS constant
   WIN_COMBINATIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[6,4,2]]
-  
+
   # Helper Method
   def position_taken?(index)
     !(@board[index].nil? || @board[index] == " ")
@@ -39,21 +39,20 @@ class TicTacToe
     end
   end
 
-  #=begin 
-  turn method accepts board as argument
-  Convert user input to an index
-  If the move is valid, make the move and display board.
-  Otherwise ask for a new position until a valid move is received.
-  =end
-  def turn(board)
+  #=begin
+  #Convert user input to an index
+  #If the move is valid, make the move and display board.
+  #Otherwise ask for a new position until a valid move is received.
+  #=end
+  def turn
     puts "Please enter 1-9:"
     input = gets.strip
     index = input_to_index(input)
-    is_valid = valid_move?(board,index)
+    is_valid = valid_move?(index)
     if is_valid === true
-      current_turn = current_player(board)
-      move(board,index,current_turn)
-      display_board(board)
+      current_turn = current_player
+      moveindex,current_turn)
+      display_board
     else
       puts 'Please enter correct input'
       puts "Please enter 1-9:"
@@ -61,10 +60,10 @@ class TicTacToe
     end
   end
 
-  #This method takes in an argument of the board array and returns the number of turns that have been played
-  def turn_count(board)
+  #This method returns the number of turns that have been played
+  def turn_count
     count  = 0
-    board.each do |player|
+    @board.each do |player|
       if player == 'X' || player == 'O'
         count += 1
       end
@@ -73,8 +72,8 @@ class TicTacToe
   end
 
   # determine if turn is "X"'s turn or "O"'s.
-  def current_player(board)
-    turn = turn_count(board)
+  def current_player
+    turn = turn_count
     if turn%2 == 0
       return "X"
     else
@@ -82,11 +81,11 @@ class TicTacToe
     end
   end
 
-  =begin this method should accept a board as an argument and return false/nil if there is no win combination
-         present in the board and return the winning combination indexes as an array if there is a win
-  =end
-  def won?(board)
-    if board.all?{|position|position == " "}
+  #=begin this method should accept a board as an argument and return false/nil if there is no win combination
+         #present in the board and return the winning combination indexes as an array if there is a win
+  #=end
+  def won?
+    if @board.all?{|position|position == " "}
       return false
     end
     no_combinations = true
