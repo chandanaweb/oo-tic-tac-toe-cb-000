@@ -161,7 +161,6 @@ class TicTacToe
   #reporting to the user the outcome of the game
   def play
     @board.each do|index|
-      turn
       is_game_over = over?
       is_game_won = won?
       is_game_draw = draw?
@@ -189,5 +188,6 @@ class TicTacToe
         end
       end
     end
+    turn
   end
 end
