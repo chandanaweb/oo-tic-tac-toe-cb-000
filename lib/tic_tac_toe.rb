@@ -146,5 +146,9 @@ def over?
 
  def play
  end
+<<<<<<< HEAD
 
+=======
+     
+>>>>>>> 455d172b41701f84dc1a119be5007c63c1efeeaa
 end
