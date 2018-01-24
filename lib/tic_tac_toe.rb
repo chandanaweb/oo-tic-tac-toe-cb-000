@@ -169,8 +169,8 @@ class TicTacToe
       is_game_draw = draw?
       if is_game_over == true
         if is_game_won.is_a?(Array)
-          winner = winner
-          puts "Congratulations #{winner}!"
+          winner_name = winner
+          puts "Congratulations #{winner_name}!"
           return " "
         elsif is_game_draw == true
           puts "Cat\'s Game!"
@@ -180,8 +180,8 @@ class TicTacToe
         end
       else
         if is_game_won.is_a?(Array)
-          winner = winner
-          puts "Congratulations #{winner}!"
+          winner_name = winner
+          puts "Congratulations #{winner_name}!"
           return " "
         elsif is_game_draw == true
           puts "Cat\'s Game!"
